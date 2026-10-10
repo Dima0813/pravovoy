@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Юридический центр «Правовой» — Нефтекамск</title>
+<meta name="description" content="Юридический центр «Правовой» в Нефтекамске: консультации, документы, представительство в судах общей юрисдикции и арбитраже. Помощь гражданам, ИП и юридическим лицам.">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --ink: #1c2230;
+    --muted: #5a6172;
+    --navy: #1f2d4a;
+    --navy-2: #2b3d63;
+    --gold: #b08d4a;
+    --line: #e3ded3;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; margin: 0 0 .5em; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+  /* Шапка */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(31, 45, 74, .97);
+    color: #fff;
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; letter-spacing: .02em; }
+  .logo svg { flex: none; }
+  .logo small { display: block; font-weight: 400; font-size: 12px; opacity: .75; letter-spacing: 0; }
+  nav { display: flex; gap: 22px; font-size: 15px; }
+  nav a { text-decoration: none; opacity: .85; }
+  nav a:hover { opacity: 1; }
+  .head-phone { text-decoration: none; font-weight: 600; white-space: nowrap; }
+
+  /* Первый экран */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff;
+    padding: 72px 0 80px;
+  }
+  .hero .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 52px); max-width: 16ch; }
+  .hero p { font-size: clamp(17px, 2vw, 20px); max-width: 60ch; opacity: .9; margin: 0 0 32px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 24px; border-radius: 10px;
+    font-weight: 600; text-decoration: none; font-size: 16px;
+    border: 2px solid transparent;
+  }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-gold:hover { background: #9c7b3e; }
+  .btn-ghost { border-color: rgba(255,255,255,.5); color: #fff; }
+  .btn-ghost:hover { border-color: #fff; }
+
+  /* Для кого */
+  .clients { margin-top: -40px; }
+  .clients .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .clients .card { box-shadow: 0 10px 30px rgba(28, 34, 48, .08); }
+  .clients h3 { font-size: 20px; margin-bottom: 6px; }
+  .clients p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  section { padding: 72px 0; }
+  .section-title { font-size: clamp(28px, 4vw, 38px); }
+  .section-lead { color: var(--muted); max-width: 60ch; margin: 0 0 36px; }
+
+  /* Услуги */
+  .services { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .service h3 { font-size: 19px; margin-bottom: 8px; display: flex; gap: 10px; align-items: baseline; }
+  .service h3::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 2px; background: var(--gold); transform: translateY(-2px); }
+  .service p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* Контакты */
+  .contacts { background: var(--navy); color: #fff; }
+  .contacts .section-lead { color: rgba(255,255,255,.8); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contact-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 28px; }
+  .contact-card .label { text-transform: uppercase; letter-spacing: .1em; font-size: 12px; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+  .contact-card .big { font-size: 22px; font-weight: 600; text-decoration: none; display: block; margin-bottom: 6px; }
+  .contact-card .big:hover { text-decoration: underline; }
+  .contact-card p { margin: 0 0 18px; }
+
+  footer { background: #151f35; color: rgba(255,255,255,.65); font-size: 14px; padding: 24px 0 96px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+  /* Кнопка звонка на телефоне */
+  .call-bar { display: none; }
+
+  @media (max-width: 860px) {
+    nav { display: none; }
+    .clients .grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero { padding: 48px 0 72px; }
+    section { padding: 56px 0; }
+    .call-bar {
+      display: block; position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 20;
+    }
+    .call-bar .btn { width: 100%; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+  }
+  @media (max-width: 480px) {
+    .head-phone { font-size: 14px; }
+    .logo small { display: none; }
+  }
+  @media (min-width: 861px) {
+    footer { padding-bottom: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Юридический центр «Правовой» — наверх">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#b08d4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v18M7 21h10M5 7h14M12 5l-7 2M12 5l7 2"/>
+        <path d="M5 7l-3 7a3 3 0 0 0 6 0z"/>
+        <path d="M19 7l-3 7a3 3 0 0 0 6 0z"/>
+      </svg>
+      <span>«ПРАВОВОЙ»<small>юридический центр</small></span>
+    </a>
+    <nav aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="head-phone" href="tel:+79177398838">+7 (917) 739-88-38</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Нефтекамск · Республика Башкортостан</div>
+      <h1>Юридический центр «Правовой»</h1>
+      <p>Квалифицированная юридическая помощь гражданам, индивидуальным предпринимателям и юридическим лицам по доступным ценам.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="tel:+79177398838">Позвонить</a>
+        <a class="btn btn-ghost" href="#services">Посмотреть услуги</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="clients">
+    <div class="wrap">
+      <div class="grid">
+        <div class="card">
+          <h3>Гражданам</h3>
+          <p>Семейные, трудовые, жилищные и наследственные споры, споры с банками, МФО и застройщиками.</p>
+        </div>
+        <div class="card">
+          <h3>Индивидуальным предпринимателям</h3>
+          <p>Регистрация и ликвидация, договоры, сопровождение торгов, абонентское обслуживание.</p>
+        </div>
+        <div class="card">
+          <h3>Юридическим лицам</h3>
+          <p>Споры между хозяйствующими субъектами, арбитраж, аутсорсинг юридических функций.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 class="section-title">Услуги</h2>
+      <p class="section-lead">Консультируем, готовим документы и представляем интересы в судах общей юрисдикции и арбитражных судах.</p>
+
+      <div class="services">
+        <article class="card service">
+          <h3>Правовые консультации</h3>
+          <p>Разбираем ситуацию и объясняем, какие есть варианты действий.</p>
+        </article>
+        <article class="card service">
+          <h3>Документы</h3>
+          <p>Разработка, подготовка и юридическая экспертиза (анализ) правовых документов.</p>
+        </article>
+        <article class="card service">
+          <h3>Споры с банками, МФО и КПК</h3>
+          <p>Оспаривание неустоек и штрафов, незаконные банковские комиссии, страхование жизни и здоровья, уменьшение долга по кредитам и займам.</p>
+        </article>
+        <article class="card service">
+          <h3>Семейные споры</h3>
+          <p>Развод, раздел имущества, алименты и другие.</p>
+        </article>
+        <article class="card service">
+          <h3>Трудовые споры</h3>
+          <p>Незаконное увольнение, невыплата заработной платы и другие.</p>
+        </article>
+        <article class="card service">
+          <h3>Жилищные споры</h3>
+          <p>Выселение, затопление квартир и другие.</p>
+        </article>
+        <article class="card service">
+          <h3>Наследственные споры</h3>
+          <p>Споры о наследстве.</p>
+        </article>
+        <article class="card service">
+          <h3>Споры с застройщиком</h3>
+          <p>Несвоевременная передача дома в эксплуатацию, уменьшение площади квартиры, страхование при договоре долевого участия и другие.</p>
+        </article>
+        <article class="card service">
+          <h3>Возмещение ущерба при ДТП</h3>
+          <p>ОСАГО, КАСКО, оценка имущества.</p>
+        </article>
+        <article class="card service">
+          <h3>Взыскание долгов и банкротство</h3>
+          <p>Взыскание долгов по судебным решениям, взаимодействие с ФССП, выкуп долговых обязательств, банкротство физических лиц.</p>
+        </article>
+        <article class="card service">
+          <h3>Иммиграционные споры</h3>
+          <p>Помощь в иммиграционных спорах.</p>
+        </article>
+        <article class="card service">
+          <h3>Споры между организациями</h3>
+          <p>Споры между хозяйствующими субъектами разных форм собственности.</p>
+        </article>
+        <article class="card service">
+          <h3>Регистрация и ликвидация бизнеса</h3>
+          <p>Регистрация, перерегистрация, ликвидация фирм и индивидуальных предпринимателей.</p>
+        </article>
+        <article class="card service">
+          <h3>Торги и аукционы</h3>
+          <p>Юридическое сопровождение по торгам (аукционам).</p>
+        </article>
+        <article class="card service">
+          <h3>Абонентское обслуживание</h3>
+          <p>Абонентское юридическое обслуживание, аутсорсинг.</p>
+        </article>
+        <article class="card service">
+          <h3>Представительство в суде</h3>
+          <p>Суды общей юрисдикции и арбитраж.</p>
+        </article>
+      </div>
+      <p class="section-lead" style="margin:28px 0 0">Не нашли свою ситуацию? Оказываем и иные виды юридических услуг — позвоните, обсудим.</p>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts">
+    <div class="wrap">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-lead">Позвоните, чтобы записаться на консультацию.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="label">Телефоны</div>
+          <a class="big" href="tel:+79177398838">+7 (917) 739-88-38</a>
+          <a class="big" href="tel:+73478370818">+7 (34783) 7-08-18</a>
+        </div>
+        <div class="contact-card">
+          <div class="label">Адрес</div>
+          <p>Республика Башкортостан, г. Нефтекамск,<br>пр. Комсомольский, д. 9</p>
+          <a class="btn btn-gold" href="https://yandex.ru/maps/?text=%D0%9D%D0%B5%D1%84%D1%82%D0%B5%D0%BA%D0%B0%D0%BC%D1%81%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%9A%D0%BE%D0%BC%D1%81%D0%BE%D0%BC%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%2C%209" target="_blank" rel="noopener">Открыть на Яндекс Картах</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Юридический центр «Правовой», г. Нефтекамск</span>
+    <span>Информация на сайте не является публичной офертой.</span>
+  </div>
+</footer>
+
+<div class="call-bar">
+  <a class="btn btn-gold" href="tel:+79177398838">Позвонить: +7 (917) 739-88-38</a>
+</div>
+
+</body>
+</html>
